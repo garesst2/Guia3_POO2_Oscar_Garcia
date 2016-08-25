@@ -22,7 +22,7 @@ public class LugaAcceCtrl {
     public List<LugaAcce> consTodo() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
         EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery("SELECT l FROM LugaAcce l");
+        Query query = em.createQuery("SELECT l FROM LugaAcce l WHERE l.fechBaja = null");
         List<LugaAcce> resultList = query.getResultList();
         em.close();
         emf.close();
