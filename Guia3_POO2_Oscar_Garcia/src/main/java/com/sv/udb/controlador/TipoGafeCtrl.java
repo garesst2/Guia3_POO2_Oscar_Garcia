@@ -5,7 +5,7 @@
  */
 package com.sv.udb.controlador;
 
-import com.sv.udb.modelo.LugaAcce;
+import com.sv.udb.modelo.TipoGafe;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,9 +17,9 @@ import javax.persistence.Query;
  *
  * @author root
  */
-public class LugaAcceCtrl {
+public class TipoGafeCtrl {
 
-    public boolean guard(LugaAcce obje) {
+    public boolean guard(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
         EntityManager em = emf.createEntityManager();
@@ -37,15 +37,15 @@ public class LugaAcceCtrl {
         emf.close();
         return resp;
     }
-    
-    public boolean actu(LugaAcce obje) {
+
+    public boolean actu(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         try {
-            LugaAcce obj = em.find(LugaAcce.class, obje.getCodiLugaAcce());
-            obj.setNombLugaAcce(obje.getNombLugaAcce());
+            TipoGafe obj = em.find(TipoGafe.class, obje.getCodiTipoGafe());
+            obj.setNombTipoGafe(obje.getNombTipoGafe());
             em.getTransaction().commit();
             resp = true;
         } catch (Exception ex) {
@@ -56,13 +56,13 @@ public class LugaAcceCtrl {
         return resp;
     }
     
-    public boolean elim(LugaAcce obje) {
+     public boolean elim(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         try {
-            LugaAcce obj = em.find(LugaAcce.class, obje.getCodiLugaAcce());
+            TipoGafe obj = em.find(TipoGafe.class, obje.getCodiTipoGafe());
             obj.setEsta(obje.getEsta());
             em.getTransaction().commit();
             resp = true;
@@ -74,14 +74,15 @@ public class LugaAcceCtrl {
         return resp;
     }
 
-    public List<LugaAcce> consTodo() {
+    public List<TipoGafe> consTodo() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
         EntityManager em = emf.createEntityManager();
-        Query query = em.createQuery("SELECT l FROM LugaAcce l WHERE l.esta = :esta");
+        Query query = em.createQuery("SELECT t FROM TipoGafe t WHERE t.esta = :esta");
         query.setParameter("esta", 1);
-        List<LugaAcce> resultList = query.getResultList();
+        List<TipoGafe> resultList = query.getResultList();
         em.close();
         emf.close();
         return resultList;
     }
+
 }
