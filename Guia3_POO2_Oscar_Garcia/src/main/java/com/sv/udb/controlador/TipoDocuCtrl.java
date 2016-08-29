@@ -16,9 +16,17 @@ import javax.persistence.Query;
 /**
  *
  * @author root
+ * @version 1.0
  */
 public class TipoDocuCtrl {
 
+    /**
+     * Método para Guardar datos en la tabla Tipo_Docu
+     * @param obje del modelo TipoDocu
+     * @return devuelve false o true dependiendo si se ha guardado o no
+     * @see elim
+     * @since desde la version 1
+     */
     public boolean guard(TipoDocu obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -38,6 +46,13 @@ public class TipoDocuCtrl {
         return resp;
     }
     
+    /**
+     * Método para actualizar datos en la tabla Tipo_Docu
+     * @param obje del modelo TipoDocu
+     * @return devuelve false o true dependiendo si se ha modificado o no
+     * @see guard
+     * @since desde la version 1
+     */
     public boolean actu(TipoDocu obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -56,6 +71,13 @@ public class TipoDocuCtrl {
         return resp;
     }
     
+    /**
+     * Método para actualzar los datos de estado en la tabla Tipo_Docu
+     * @param obje del modelo TipoDocu
+     * @return devuelve false o true dependiendo si se ha modificado o no
+     * @see actu
+     * @since desde la version 1
+     */
     public boolean elim(TipoDocu obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -74,6 +96,12 @@ public class TipoDocuCtrl {
         return resp;
     }
 
+    /**
+     * Método para actualzar los datos de estado en la tabla Tipo_Docu
+     * @return list todos los datos consultados
+     * @see elim
+     * @since desde la version 1
+     */
     public List<TipoDocu> consTodo() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
         EntityManager em = emf.createEntityManager();

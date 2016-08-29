@@ -15,10 +15,18 @@ import javax.persistence.Query;
 
 /**
  *
- * @author root
+ * @author Oscar
+ * @version 1.0
  */
 public class LugaAcceCtrl {
 
+    /**
+     * Método para Guardar datos en la tabla Luga_Acce
+     * @param obje del modelo LugaAcce
+     * @return devuelve false o true dependiendo si se ha guardado o no
+     * @see TipoDocu.guar()
+     * @since desde la version 1
+     */
     public boolean guard(LugaAcce obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -38,6 +46,13 @@ public class LugaAcceCtrl {
         return resp;
     }
     
+    /**
+     * Método para actualizar datos en la tabla Luga_Acce
+     * @param obje del modelo LugaAcce
+     * @return devuelve false o true dependiendo si se ha modificado o no
+     * @see TipoDocu.actu()
+     * @since desde la version 1
+     */
     public boolean actu(LugaAcce obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -56,6 +71,13 @@ public class LugaAcceCtrl {
         return resp;
     }
     
+    /**
+     * Método para actualzar los datos de estado en la tabla Luga_Acce
+     * @param obje del modelo LugaAcce
+     * @return devuelve false o true dependiendo si se ha modificado o no
+     * @see TipoDocu.guar()
+     * @since desde la version 1
+     */
     public boolean elim(LugaAcce obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -74,6 +96,12 @@ public class LugaAcceCtrl {
         return resp;
     }
 
+    /**
+     * Método para actualzar los datos de estado en la tabla Luga_Acce
+     * @return list todos los datos consultados
+     * @see elim
+     * @since desde la version 1
+     */
     public List<LugaAcce> consTodo() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
         EntityManager em = emf.createEntityManager();

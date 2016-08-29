@@ -16,9 +16,17 @@ import javax.persistence.Query;
 /**
  *
  * @author root
+ * @version 1.0
  */
 public class TipoGafeCtrl {
 
+    /**
+     * Método para Guardar datos en la tabla Tipo_Gafe
+     * @param obje del modelo TipoGafe
+     * @return devuelve false o true dependiendo si se ha guardado o no
+     * @see elim
+     * @since desde la version 1
+     */
     public boolean guard(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -38,6 +46,13 @@ public class TipoGafeCtrl {
         return resp;
     }
 
+    /**
+     * Método para actualizar datos en la tabla Tipo_Gafe
+     * @param obje del modelo TipoGafe
+     * @return devuelve false o true dependiendo si se ha modificado o no
+     * @see guard
+     * @since desde la version 1
+     */
     public boolean actu(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -56,6 +71,13 @@ public class TipoGafeCtrl {
         return resp;
     }
     
+    /**
+     * Método para actualzar los datos de estado en la tabla Tipo_Gafe
+     * @param obje del modelo TipoGafe
+     * @return devuelve false o true dependiendo si se ha modificado o no
+     * @see actu
+     * @since desde la version 1
+     */
      public boolean elim(TipoGafe obje) {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
@@ -74,6 +96,12 @@ public class TipoGafeCtrl {
         return resp;
     }
 
+     /**
+     * Método para actualzar los datos de estado en la tabla Tipo_Gafe
+     * @return list todos los datos consultados
+     * @see elim
+     * @since desde la version 1
+     */
     public List<TipoGafe> consTodo() {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POO2PU");
         EntityManager em = emf.createEntityManager();
